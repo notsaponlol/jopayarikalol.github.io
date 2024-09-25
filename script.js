@@ -16,7 +16,7 @@ image.addEventListener('click', () => {
     imageover.style.left = randomX + 'px';
     imageover.style.top = randomY + 'px';
     
-    if (count % 100 === 0) {
+    if (count % 30 === 0) {
 	audio.play();
 	imageover.style.display = 'block'; 
         setTimeout(() => {
