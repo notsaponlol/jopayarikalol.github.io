@@ -14,16 +14,24 @@ function getCookie(name) {
     let nameEQ = name + "=";
     let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        let c = ca[i].trim();
         if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
 }
 
-// Загружаем количество кликов из куки
+// Получаем количество кликов из куки
 let count = parseInt(getCookie('clickCount')) || 0;
 countElement.textContent = count;
+
+// Обновляем размеры окна для случайного появления изображения
+function updateWindowSize() {
+    maxWidth = window.innerWidth;
+    maxHeight = window.innerHeight;
+}
+
+window.addEventListener('resize', updateWindowSize);
+updateWindowSize();
 
 // Обработчик кликов
 image.addEventListener('click', () => {
